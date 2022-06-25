@@ -20,7 +20,7 @@ namespace MoodAnalyser
 
             try
             {
-                if(message == null)
+                if(message == null || message == "")
                 {
                     nullException.shownullException(message);
                 }
@@ -36,7 +36,7 @@ namespace MoodAnalyser
             }catch(MoodAnalysisException e)
             {
                 Console.WriteLine(e.Message);
-                return "Happy";
+                return e.Message;
             }
         }
     }

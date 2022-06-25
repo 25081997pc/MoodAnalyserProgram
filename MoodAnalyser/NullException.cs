@@ -12,7 +12,11 @@ namespace MoodAnalyser
         {
             if(message == null)
             {
-                throw (new MoodAnalysisException("Enter Invalid Input"));
+                throw (new MoodAnalysisException("Enter Null Input"));
+            }
+            else if(message == "")
+            {
+                throw (new MoodAnalysisException("Empty Mood"));
             }
            
         }

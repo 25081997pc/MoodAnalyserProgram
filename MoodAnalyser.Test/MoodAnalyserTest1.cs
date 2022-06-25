@@ -44,8 +44,8 @@ namespace MoodAnalyser.Test
         {
             //Arrange
 
-            string message = "null";
-            string expexted_Output = "Happy Mood";
+            string message = null;
+            string expexted_Output = "Enter Null Input";
             string actual_Output;
 
             MoodAnalyse moodAnalyse = new MoodAnalyse(message);
@@ -55,6 +55,7 @@ namespace MoodAnalyser.Test
 
             //Assert
             Assert.AreEqual(expexted_Output, actual_Output);
+
 
         }
     }
