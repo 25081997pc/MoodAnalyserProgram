@@ -6,15 +6,15 @@ namespace MoodAnalyser.Test
         [TestMethod]
         public void TestanalyseMoodSad()
         {
-            MoodAnalyse moodAnalyse = new MoodAnalyse();
-
             //Arrange
             string messege = "I am in Sad Mood";
             string expexted_Output = "Sad Mood";
             string actual_Output;
 
+            MoodAnalyse moodAnalyse = new MoodAnalyse(messege.ToLower());
+
             //Act
-            actual_Output = moodAnalyse.AnalyseMood(messege.ToLower());
+            actual_Output = moodAnalyse.AnalyseMood();
 
             //Assert
             Assert.AreEqual(expexted_Output, actual_Output);
@@ -23,15 +23,15 @@ namespace MoodAnalyser.Test
         [TestMethod]
         public void TestanalyseMoodHappy()
         {
-            MoodAnalyse moodAnalyse = new MoodAnalyse();
-
             //Arrange
             string messege = "I am in any Mood";
             string expexted_Output = "Happy Mood";
             string actual_Output;
 
+            MoodAnalyse moodAnalyse = new MoodAnalyse(messege.ToLower());
+
             //Act
-            actual_Output = moodAnalyse.AnalyseMood(messege.ToLower());
+            actual_Output = moodAnalyse.AnalyseMood();
 
             //Assert
             Assert.AreEqual(expexted_Output, actual_Output);
