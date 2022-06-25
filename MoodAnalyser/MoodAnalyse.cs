@@ -20,6 +20,10 @@ namespace MoodAnalyser
 
             try
             {
+                if(message == null)
+                {
+                    nullException.shownullException(message);
+                }
                 if (message.Contains("sad"))
                 {
                     return "Sad Mood";
@@ -28,8 +32,7 @@ namespace MoodAnalyser
                 {
                     return "Happy Mood";
                 }
-                nullException.shownullException(message);
-
+               
             }catch(MoodAnalysisException e)
             {
                 Console.WriteLine(e.Message);
