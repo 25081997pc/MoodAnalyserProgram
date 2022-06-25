@@ -7,11 +7,12 @@ namespace MoodAnalyser.Test
         public void TestanalyseMoodSad()
         {
             //Arrange
-            string messege = "I am in Sad Mood";
+
+            string message = "I am in Sad Mood";
             string expexted_Output = "Sad Mood";
             string actual_Output;
 
-            MoodAnalyse moodAnalyse = new MoodAnalyse(messege.ToLower());
+            MoodAnalyse moodAnalyse = new MoodAnalyse(message.ToLower());
 
             //Act
             actual_Output = moodAnalyse.AnalyseMood();
@@ -24,11 +25,12 @@ namespace MoodAnalyser.Test
         public void TestanalyseMoodHappy()
         {
             //Arrange
-            string messege = "I am in any Mood";
+
+            string message = "I am in any Mood";
             string expexted_Output = "Happy Mood";
             string actual_Output;
 
-            MoodAnalyse moodAnalyse = new MoodAnalyse(messege.ToLower());
+            MoodAnalyse moodAnalyse = new MoodAnalyse(message.ToLower());
 
             //Act
             actual_Output = moodAnalyse.AnalyseMood();
