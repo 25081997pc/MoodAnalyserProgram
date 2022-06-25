@@ -57,5 +57,22 @@ namespace MoodAnalyser.Test
 
 
         }
+        [TestMethod]
+        public void AnalysemoodEmptyTest()
+        {
+            //Arrange
+            string message = "";
+            string expexted_Output = "Empty Mood";
+            string actual_Output;
+
+            MoodAnalyse moodAnalyse = new MoodAnalyse(message);
+
+            //Act
+            actual_Output = moodAnalyse.AnalyseMood();
+
+            //Assert
+            Assert.AreEqual(expexted_Output, actual_Output);
+
+        }
     }
 }
