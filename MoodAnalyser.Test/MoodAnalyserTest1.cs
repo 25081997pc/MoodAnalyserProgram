@@ -43,7 +43,6 @@ namespace MoodAnalyser.Test
         public void AnalysemoodNullTest()
         {
             //Arrange
-
             string message = null;
             string expexted_Output = "Enter Null Input";
             string actual_Output;

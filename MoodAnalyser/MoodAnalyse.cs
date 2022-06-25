@@ -20,6 +20,7 @@ namespace MoodAnalyser
 
             try
             {
+
                 if(message == null || message == "")
                 {
                     nullException.shownullException(message);
