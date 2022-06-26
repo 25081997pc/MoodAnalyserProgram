@@ -8,6 +8,10 @@ namespace MoodAnalyser
 {
     public class MoodAnalyse
     {
+        public MoodAnalyse()
+        {
+
+        }
         public string message;
        
         public MoodAnalyse(string message)
@@ -16,13 +20,17 @@ namespace MoodAnalyser
         }
         public string AnalyseMood()
         {
-            NullException nullException = new NullException();
+            CustomExceptionHandler customExceptionhandler = new CustomExceptionHandler();
 
             try
             {
-                if(message == null || message == "")
+                if(message == null)
                 {
-                    nullException.shownullException(message);
+                    customExceptionhandler.shownullException(message);
+                }
+                if(message == "")
+                {
+                    customExceptionhandler.showEmptyException(message);
                 }
                 if (message.Contains("sad"))
                 {
@@ -33,11 +41,11 @@ namespace MoodAnalyser
                     return "Happy Mood";
                 }
                
-            }catch(MoodAnalysisException e)
+            }catch(MoodAnalysisCustomException e)
             {
                 Console.WriteLine(e.Message);
                 return e.Message;
             }
         }
-    }
+    }    
 }
