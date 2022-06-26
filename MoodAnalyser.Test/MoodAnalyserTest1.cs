@@ -102,5 +102,19 @@ namespace MoodAnalyser.Test
             //Assert
             expected.Equals(obj);
         }
+        [TestMethod]
+        public void GivenImproperConstructorName_ShouldThrowMoodAnalysisCustomException()
+        {
+            //Arrange
+            string messege = null;
+            object expected = new MoodAnalyse(messege);
+            object obj;
+
+            //Act
+            obj = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodAnalyser");
+
+            //Assert
+            expected.Equals(obj);
+        }
     }
 }
