@@ -92,15 +92,17 @@ namespace MoodAnalyser.Test
         public void GivenImproperClassName_ShouldThrowMoodAnalysisCustomException()
         {
             //Arrange
-            string messege = null;
-            object expected = new MoodAnalyse(messege);
-            object obj;
-
+            string expected = "Class Not Found";
+            
+            try
+            {
             //Act
-            obj = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodClass");
-
+            object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodClass");
+            }catch(MoodAnalysisCustomException e)
+            {    
             //Assert
-            expected.Equals(obj);
+            Assert.AreEquals(expected, e.Message);
+            }    
         }
     }
 }
