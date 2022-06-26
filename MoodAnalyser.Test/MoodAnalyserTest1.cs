@@ -96,12 +96,12 @@ namespace MoodAnalyser.Test
             
             try
             {
-            //Act
-            object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodClass");
+              //Act
+              object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodClass");
             }catch(MoodAnalysisCustomException e)
             {    
-            //Assert
-            Assert.AreEquals(expected, e.Message);
+              //Assert
+              Assert.AreEquals(expected, e.Message);
             }    
         }
     }
