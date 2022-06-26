@@ -78,8 +78,8 @@ namespace MoodAnalyser.Test
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
         {
             //Arrange
-            string messege = null;
-            object expected = new MoodAnalyse(messege);
+            string message = null;
+            object expected = new MoodAnalyse(message);
             object obj;
 
             //Act
