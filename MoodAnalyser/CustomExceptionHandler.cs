@@ -8,20 +8,15 @@ namespace MoodAnalyser
 {
     public class CustomExceptionHandler
     {
-        public void shownullException(string message)
+        public void shownullException( )
         {
-            if (message == null)
-            {
-                throw (new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.NULL_MESSAGE,"Mood should not be null"));
-            }
+             throw (new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.NULL_MESSAGE,"Mood should not be null"));
 
         }
-        public void showEmptyException(string message)
+        public void showEmptyException( )
         {
-            if (message == "")
-            {
-                throw (new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.EMPTY_MESSAGE,"Mood should not be Empty"));
-            }
+             throw (new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.EMPTY_MESSAGE,"Mood should not be Empty"));
+            
         }
     }
 }

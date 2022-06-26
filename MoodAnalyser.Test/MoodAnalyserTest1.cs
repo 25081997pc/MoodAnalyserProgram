@@ -88,5 +88,19 @@ namespace MoodAnalyser.Test
             //Assert
             expected.Equals(obj);
         }
+        [TestMethod]
+        public void GivenImproperClassName_ShouldThrowMoodAnalysisCustomException()
+        {
+            //Arrange
+            string messege = null;
+            object expected = new MoodAnalyse(messege);
+            object obj;
+
+            //Act
+            obj = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodClass");
+
+            //Assert
+            expected.Equals(obj);
+        }
     }
 }

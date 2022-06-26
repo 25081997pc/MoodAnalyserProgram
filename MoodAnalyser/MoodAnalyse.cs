@@ -26,11 +26,11 @@ namespace MoodAnalyser
             {
                 if(message == null)
                 {
-                    customExceptionhandler.shownullException(message);
+                    customExceptionhandler.shownullException();
                 }
                 if(message == "")
                 {
-                    customExceptionhandler.showEmptyException(message);
+                    customExceptionhandler.showEmptyException();
                 }
                 if (message.Contains("sad"))
                 {
