@@ -92,31 +92,35 @@ namespace MoodAnalyser.Test
         public void GivenImproperClassName_ShouldThrowMoodAnalysisCustomException()
         {
             //Arrange
-            string messege = null;
-            object expected = new MoodAnalyse(messege);
-            object obj;
+            string expected = "Class Not Found";
 
-            //Act
-            obj = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodClass");
-
-            //Assert
-            expected.Equals(obj);
+            try
+            {
+                //Act
+                object moodAnalysisObjet = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodAnalyser");
+            }catch (MoodAnalysisCustomException e)
+            {
+                //Assert
+                Assert.AreEqual(expected, e.Message);
+            }
         }
         [TestMethod]
         public void GivenImproperConstructorName_ShouldThrowMoodAnalysisCustomException()
         {
             //Arrange
-            string messege = null;
-            object expected = new MoodAnalyse(messege);
-            object obj;
-
-            //Act
-            obj = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodAnalyser");
-
-            //Assert
-            expected.Equals(obj);
+            string expected = "Constructor is Not Found";
+            
+            try
+            {
+                //Act
+                object moodAnalysisObjet = MoodAnalyserFactory.CreateMoodAnalysis("MoodAnalyser.MoodClass", "MoodAnalyser");
+            }catch(MoodAnalysisCustomException e)
+            {
+                //Assert
+                Assert.AreEqual(expected, e.Message);
+            }
+           
         }
-
         [TestMethod]
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
         {
@@ -130,5 +134,25 @@ namespace MoodAnalyser.Test
             //Assert
             expected.Equals(obj);
         }
+
+        [TestMethod]
+        public void GivenImproperClassName_ShouldThrowMoodAnalysisCustomException_UsingParameterizedConstructor()
+        {
+            //Arrange
+            string expected = "Class Not Found";
+
+            try
+            {
+                //Act
+                object moodAnalysisObject = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodClass", "MoodClass", "HAPPY");
+
+            }catch(MoodAnalysisCustomException e)
+            {
+                //Assert
+                Assert.AreEqual(expected, e.Message);
+            }
+
+        }
+
     }
 }
