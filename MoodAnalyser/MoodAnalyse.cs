@@ -38,7 +38,7 @@ namespace MoodAnalyser
                 }
                 else
                 {
-                    return "Happy Mood";
+                    return "HAPPY";
                 }
                
             }catch(MoodAnalysisCustomException e)

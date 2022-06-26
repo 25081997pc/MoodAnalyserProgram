@@ -64,7 +64,7 @@ namespace MoodAnalyser
             try
             {
                 Type type = Type.GetType("MoodAnalyser.MoodAnalyse");
-                object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalyse", "MoodAnalyse", "message");
+                object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalyse", "MoodAnalyse", message);
                 MethodInfo analysemethodInfo = type.GetMethod(methodname);
                 object mood = analysemethodInfo.Invoke(moodAnalyseObject, null);
                 return mood.ToString();
@@ -74,5 +74,27 @@ namespace MoodAnalyser
                 throw new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.NO_SUCH_METHOD, "Method is Not Found");
             }
         }
+
+        public static string SetField(string message, string fieldName)
+        {
+            try
+            {
+                MoodAnalyse moodAnalyse = new MoodAnalyse();
+                Type type = typeof(MoodAnalyse);
+                FieldInfo field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.Instance);
+                if (message == null)
+                {
+                    throw new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.NO_SUCH_FIELD, "Message should not be null");
+                }
+                field.SetValue(moodAnalyse, message);
+                return moodAnalyse.message;
+            }
+            catch(NullReferenceException)
+            {
+                throw new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.NO_SUCH_FIELD, "Field is Not Found");
+            }
+           
+        }
+        
     }
 }
