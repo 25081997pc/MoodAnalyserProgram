@@ -57,5 +57,22 @@ namespace MoodAnalyser
                 throw new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor is Not Found");
             }
         }
+
+
+        public static string InvokeAnalyseMood(string message, string methodname)
+        {
+            try
+            {
+                Type type = Type.GetType("MoodAnalyser.MoodAnalyse");
+                object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalyse", "MoodAnalyse", "message");
+                MethodInfo analysemethodInfo = type.GetMethod(methodname);
+                object mood = analysemethodInfo.Invoke(moodAnalyseObject, null);
+                return mood.ToString();
+            }
+            catch(NullReferenceException)
+            {
+                throw new MoodAnalysisCustomException(MoodAnalysisCustomException.ExceptionType.NO_SUCH_METHOD, "Method is Not Found");
+            }
+        }
     }
 }
